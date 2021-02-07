@@ -1,0 +1,19 @@
+Nimbly 2.0 Documentation
+######################################################
+
+Nimbly
+
+..  toctree::
+    :maxdepth: 2
+    :caption: Contents:
+
+    flexarray
+    flexqueue
+    flexstack
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

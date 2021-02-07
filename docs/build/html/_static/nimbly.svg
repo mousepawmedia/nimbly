@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="140mm"
+   height="140mm"
+   viewBox="0 0 140 140"
+   version="1.1"
+   id="svg2351"
+   sodipodi:docname="nimbly-logo.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   inkscape:export-filename="/home/jason/MPM Nextcloud/Core Shared/Design/Logos/Nimbly/nimbly-logo.png"
+   inkscape:export-xdpi="90.709999"
+   inkscape:export-ydpi="90.709999">
+  <defs
+     id="defs2345" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="169.37768"
+     inkscape:cy="117.57298"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata2348">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-15.094651,-50.275691)">
+    <path
+       style="fill:#808080;stroke:#000000;stroke-width:1.13066px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 65.511974,105.63257 -9.185925,20.43461 19.190918,-20.0979"
+       id="path2922-9"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:#666666;stroke:#000000;stroke-width:1.13066px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 111.36401,104.66144 5.51484,24.68824 8.40638,-22.67836"
+       id="path2944-1"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:#808080;stroke:#000000;stroke-width:1.13244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 43.952701,84.554545 c 0,0 -1.503876,-11.307877 6.591469,-11.732987 8.095348,-0.425117 1.163594,10.952028 1.163594,10.952028"
+       id="path2966-2"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:1.13066px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 54.368126,100.84633 c 5.268866,1.69155 8.06945,6.62655 17.294366,10.42312 5.204682,2.14201 10.341375,1.99876 25.074043,2.21137 7.412225,0.10693 15.784145,-1.54495 21.731125,-2.37998 5.94699,-0.83506 10.45614,0.12068 12.45938,-1.34401 14.82273,-10.837411 9.83167,-15.383999 3.14723,-19.282924 C 123.2634,84.168107 95.317879,81.711648 79.918285,88.148421 58.957781,96.909568 51.946517,78.45124 41.800212,81.153495 28.376525,86.142012 16.76644,98.019082 16.76644,98.019082 c 0,0 22.693083,4.272108 29.752663,1.309924 3.569189,-1.022354 3.819313,0.223637 7.849023,1.517324 z"
+       id="path2920"
+       sodipodi:nodetypes="ssssssscccs" />
+    <path
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:1.13244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 65.407101,101.2961 5.907683,29.52722 4.120685,-26.67517"
+       id="path2922"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:1.13066;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 120.60191,104.76487 18.36542,25.116 -4.4442,-23.10613"
+       id="path2944"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:1.13244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 39.850737,84.167983 c 0,0 -1.531384,-11.150137 7.072105,-11.617208 8.603494,-0.467034 1.17195,10.800978 1.17195,10.800978"
+       id="path2966"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:1.13066px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 138.40391,93.986154 c 0,0 60.24159,9.253556 -62.46447,32.945946 0,0 92.55944,-25.37492 63.50271,-26.2447"
+       id="path2988"
+       sodipodi:nodetypes="ccc" />
+    <g
+       aria-label="NiMBLY"
+       id="text848"
+       style="font-style:normal;font-weight:normal;font-size:36.7498px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.918746"
+       transform="translate(0.52916663,21.695841)">
+      <path
+         d="M 55.668571,133.61279 H 53.610582 L 39.645657,111.67316 v 21.93963 h -2.057989 v -25.72486 h 2.057989 l 13.964925,21.93963 v -21.93963 h 2.057989 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';stroke-width:0.918746"
+         id="path850" />
+      <path
+         d="m 63.937263,108.76993 q 0,0.47774 -0.367498,0.84524 -0.367498,0.3675 -0.881996,0.3675 -0.477747,0 -0.845245,-0.3675 -0.367498,-0.40425 -0.367498,-0.88199 0,-0.47775 0.367498,-0.84525 0.367498,-0.3675 0.881995,-0.3675 0.514497,0 0.845246,0.3675 0.367498,0.3675 0.367498,0.882 z m -0.220499,24.84286 h -2.057989 v -18.41165 h 2.057989 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';stroke-width:0.918746"
+         id="path852" />
+      <path
+         d="m 89.441568,133.61279 h -2.057989 v -19.66114 l -6.688464,19.66114 h -2.241738 l -6.651714,-19.66114 v 19.66114 h -2.057989 v -25.72486 h 2.057989 l 7.754208,22.56438 7.827708,-22.56438 h 2.057989 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';stroke-width:0.918746"
+         id="path854" />
+      <path
+         d="m 103.70043,133.61279 h -8.452453 v -25.72486 h 8.121703 q 3.01349,0 4.74073,1.54349 1.72724,1.5435 1.72724,4.81423 0,3.23398 -2.42549,4.88772 -0.0367,0.0367 -0.0367,0.0735 v 0.0368 q 1.61699,0.735 2.68274,2.38874 1.10249,1.65374 1.10249,4.29972 0,2.93999 -1.50674,5.10823 -0.77175,1.17599 -2.31524,1.87424 -1.50674,0.69824 -3.63823,0.69824 z m -6.394464,-15.17767 h 5.990214 q 2.05799,0 3.23399,-1.10249 1.17599,-1.10249 1.17599,-3.19723 0,-4.29973 -4.63048,-4.29973 h -5.769714 z m 0,13.22993 h 6.320964 q 5.32872,0 5.32872,-5.87996 0,-2.57249 -1.39649,-3.93223 -1.39649,-1.3965 -3.30748,-1.3965 h -6.945714 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';stroke-width:0.918746"
+         id="path856" />
+      <path
+         d="m 128.5065,133.61279 h -13.26668 v -25.72486 h 2.05799 v 23.88737 h 11.20869 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';stroke-width:0.918746"
+         id="path858" />
+      <path
+         d="m 135.63587,133.87004 -0.47775,-1.35974 q 2.24174,-0.84525 2.24174,-4.48348 v -5.21847 q -0.99225,0.882 -2.64599,1.35974 -1.65374,0.441 -3.16048,0.441 -3.89548,0 -6.17397,-1.91099 -2.24174,-1.94774 -2.24174,-5.73297 v -9.0772 h 2.05799 v 9.4447 q 0,2.57249 1.76399,3.93223 1.76399,1.32299 4.26298,1.32299 2.49899,0 4.11598,-0.91874 1.61699,-0.91875 2.02124,-2.75624 v -11.02494 h 2.09473 v 19.99189 q 0,2.68274 -1.02899,4.22623 -0.99224,1.50674 -2.82973,1.76399 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Advent Pro';-inkscape-font-specification:'Advent Pro';stroke-width:0.918746"
+         id="path860" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/Debug/libnimbly.a  CMakeFiles/nimbly.dir/src/tests/flexarray_tests.cpp.o CMakeFiles/nimbly.dir/src/tests/flexqueue_tests.cpp.o CMakeFiles/nimbly.dir/src/tests/flexstack_tests.cpp.o CMakeFiles/nimbly.dir/src/tests/pool_tests.cpp.o
+/usr/bin/ranlib ../../lib/Debug/libnimbly.a

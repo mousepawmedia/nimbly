@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FlexQueue &mdash; Nimbly 2.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Nimbly 2.0.0 documentation" href="index.html"/>
+        <link rel="next" title="FlexStack" href="flexstack.html"/>
+        <link rel="prev" title="FlexArray" href="flexarray.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Nimbly
+          
+
+          
+            
+            <img src="_static/nimbly.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="flexarray.html">FlexArray</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FlexQueue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-flexqueue">What is FlexQueue?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-to-std-queue">Comparison to <code class="docutils literal notranslate"><span class="pre">std::queue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-limitations">Technical Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-flexqueue">Using FlexQueue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#including-flexqueue">Including FlexQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-flexqueue">Creating a FlexQueue</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#raw-copy">Raw Copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resize-factor">Resize Factor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reserve-size">Reserve Size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-elements">Adding Elements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enqueue"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-elements">Accessing Elements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#at"><code class="docutils literal notranslate"><span class="pre">at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#peek"><code class="docutils literal notranslate"><span class="pre">peek()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-elements">Removing Elements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dequeue"><code class="docutils literal notranslate"><span class="pre">dequeue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erase"><code class="docutils literal notranslate"><span class="pre">erase()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#size-and-capacity-functions">Size and Capacity Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getcapacity"><code class="docutils literal notranslate"><span class="pre">getCapacity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#length"><code class="docutils literal notranslate"><span class="pre">length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isempty"><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isfull"><code class="docutils literal notranslate"><span class="pre">isFull()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reserve"><code class="docutils literal notranslate"><span class="pre">reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shrink"><code class="docutils literal notranslate"><span class="pre">shrink()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flexstack.html">FlexStack</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Nimbly</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>FlexQueue</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/flexqueue.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flexqueue">
+<h1>FlexQueue<a class="headerlink" href="#flexqueue" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-flexqueue">
+<h2>What is FlexQueue?<a class="headerlink" href="#what-is-flexqueue" title="Permalink to this headline">¶</a></h2>
+<p>FlexQueue is a flexibly-sized queue similar to <code class="docutils literal notranslate"><span class="pre">std::queue</span></code>. Internally,
+it is implemented as a circular buffer deque, guaranteed to be stored in
+contiguous memory, thereby helping to avoid or minimize cache misses.</p>
+<p>While we aim to create a high-performance data structure, our top priority is
+in giving the user easy <em>control</em> over the tradeoffs between CPU performance,
+memory, and cache misses.</p>
+<div class="section" id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+<p>Because <code class="docutils literal notranslate"><span class="pre">std::queue</span></code> is based on <code class="docutils literal notranslate"><span class="pre">std::deque</span></code>, and thereby is not stored
+in contiguous memory, we instead must benchmark <code class="docutils literal notranslate"><span class="pre">FlexQueue</span></code> against
+<code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.</p>
+<p>FlexQueue is usually as fast as, or faster than, <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.
+Here’s how FlexQueue ranks against the GCC implementation of
+<code class="docutils literal notranslate"><span class="pre">std::vector</span></code>…</p>
+<ul class="simple">
+<li>Pushing (to back) is faster.</li>
+<li>Popping (from front) is faster.</li>
+<li>Accessing is at least as fast.</li>
+</ul>
+<p>If general performance is more important to you than contiguous memory, see
+<code class="docutils literal notranslate"><span class="pre">SpeedQueue</span></code>.</p>
+</div>
+<div class="section" id="comparison-to-std-queue">
+<h3>Comparison to <code class="docutils literal notranslate"><span class="pre">std::queue</span></code><a class="headerlink" href="#comparison-to-std-queue" title="Permalink to this headline">¶</a></h3>
+<p>FlexQueue offers largely the same functionality as <code class="docutils literal notranslate"><span class="pre">std::queue</span></code>. However,
+it is not intended to feature-identical. Some functionality hasn’t been
+implemented yet, and we may not include some other features to leave room
+for future optimization and experimentation.</p>
+<ul class="simple">
+<li>FlexQueue does not offer iterators. This <em>may</em> be added in the future.</li>
+<li>You cannot change the underlying data structure. Our base class is where
+most of the heavy lifting occurs.</li>
+<li>Some advanced modifiers haven’t been implemented yet.</li>
+</ul>
+</div>
+<div class="section" id="technical-limitations">
+<h3>Technical Limitations<a class="headerlink" href="#technical-limitations" title="Permalink to this headline">¶</a></h3>
+<p>FlexQueue can store a maximum of 4,294,967,294 objects. This is because it uses
+32-bit unsigned integers for internal indexing, with the largest value
+reserved as  <code class="docutils literal notranslate"><span class="pre">INVALID_INDEX</span></code>. The limit is calculated as follows.</p>
+<p><code class="docutils literal notranslate"><span class="pre">2^{32}</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">4,294,967,294</span></code></p>
+</div>
+</div>
+<div class="section" id="using-flexqueue">
+<h2>Using FlexQueue<a class="headerlink" href="#using-flexqueue" title="Permalink to this headline">¶</a></h2>
+<p>Queues are “First-In-First-Out”; you insert to the end (or “back”), and remove
+from the front.</p>
+<div class="section" id="including-flexqueue">
+<h3>Including FlexQueue<a class="headerlink" href="#including-flexqueue" title="Permalink to this headline">¶</a></h3>
+<p>To include FlexQueue, use the following:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;nimbly/flexqueue.hpp&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-flexqueue">
+<h3>Creating a FlexQueue<a class="headerlink" href="#creating-a-flexqueue" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">FlexQueue</span></code> object is created by whatever means is convenient. It handles
+its own dynamic allocation for storing its elements.</p>
+<p>When the FlexQueue is first created, you must specify the type of its elements.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Both of these methods are valid...</span>
+
+<span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dmvLine</span><span class="p">;</span>
+
+<span class="n">anotherQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="raw-copy">
+<h4>Raw Copy<a class="headerlink" href="#raw-copy" title="Permalink to this headline">¶</a></h4>
+<p>By default, FlexQueue uses standard assignment for moving items when the
+internal data structure resizes. However, if you’re storing atomic data types,
+such as integers, additional performance gains may be achieved by having
+FlexQueue use raw memory copying (<cite>memcpy</cite>) instead.</p>
+<p>To switch to Raw Copy Mode, include <code class="docutils literal notranslate"><span class="pre">true</span></code> as the second template
+parameter (<code class="docutils literal notranslate"><span class="pre">raw_copy</span></code>).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="nb">true</span><span class="o">&gt;</span> <span class="n">i_use_rawcopy</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resize-factor">
+<h4>Resize Factor<a class="headerlink" href="#resize-factor" title="Permalink to this headline">¶</a></h4>
+<p>When we run out of space in the data structure, we need to reallocate memory.
+To reduce the CPU cycles used on reallocation, we allocate more space than we
+immediately need. This <em>resize factor</em> is controllable.</p>
+<p>By default, when the FlexQueue resizes, it <strong>doubles</strong> its capacity (<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">*</span> <span class="pre">2</span></code>).
+This provides the best general performance. However, if you want to preserve
+memory at a small performance cost, you can switch to a resize factor of
+<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">*</span> <span class="pre">1.5</span></code> (internally implemented as <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">n</span> <span class="pre">/</span> <span class="pre">2</span></code>).</p>
+<p>To switch to the <code class="docutils literal notranslate"><span class="pre">1.5</span></code> factor, include <code class="docutils literal notranslate"><span class="pre">false</span></code> as the third template
+parameter (<code class="docutils literal notranslate"><span class="pre">factor_double</span></code>).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="o">&gt;</span> <span class="n">i_resize_slower</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reserve-size">
+<h4>Reserve Size<a class="headerlink" href="#reserve-size" title="Permalink to this headline">¶</a></h4>
+<p>We can specify the initial size (in elements) of the FlexQueue in the
+constructor.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;*</span> <span class="n">dmvLine</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The FlexQueue will always have minimum capacity of 2.</p>
+</div>
+</div>
+</div>
+<div class="section" id="adding-elements">
+<h3>Adding Elements<a class="headerlink" href="#adding-elements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="enqueue">
+<h4><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code><a class="headerlink" href="#enqueue" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code> adds a value to the end of the queue. Aliases <code class="docutils literal notranslate"><span class="pre">push()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">push_back()</span></code> are also provided. This function has the performance of
+<code class="docutils literal notranslate"><span class="pre">O(1)</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">apples</span><span class="p">;</span>
+
+<span class="c1">// We&#39;ll add some values</span>
+<span class="c1">// using the three aliases</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+
+<span class="c1">// The queue is now [23, 12, 31]</span>
+</pre></div>
+</div>
+<p>If there is ever a problem adding a value, the function will return <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+Otherwise, it will return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</div>
+</div>
+<div class="section" id="accessing-elements">
+<h3>Accessing Elements<a class="headerlink" href="#accessing-elements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="at">
+<h4><code class="docutils literal notranslate"><span class="pre">at()</span></code><a class="headerlink" href="#at" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">at()</span></code> allows you to access the value at a given index.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">apples</span><span class="p">;</span>
+
+<span class="c1">// We&#39;ll push some values for our example</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+
+<span class="n">apples</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// The queue is [23, 12, 31]</span>
+<span class="c1">// This output yields 12</span>
+</pre></div>
+</div>
+<p>Alternatively, you can use the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator to access a value.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Using the queue from above...</span>
+
+<span class="n">apples</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="c1">// The queue is [23, 12, 31]</span>
+<span class="c1">// This output yields 31</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the queue is empty, or if the specified index is too large,
+this function/operator will throw the exception <code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code>.</p>
+</div>
+</div>
+<div class="section" id="peek">
+<h4><code class="docutils literal notranslate"><span class="pre">peek()</span></code><a class="headerlink" href="#peek" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">peek()</span></code> allows you to access the next element in the queue without modifying
+the data structure.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">apples</span><span class="p">;</span>
+
+<span class="c1">// We&#39;ll push some values for our example</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">apples</span><span class="p">.</span><span class="n">peek</span><span class="p">();</span>
+
+<span class="c1">// This output yields 23</span>
+<span class="c1">// The queue remains [23, 12, 31]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the queue is empty, this function will throw the exception
+<code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="removing-elements">
+<h3>Removing Elements<a class="headerlink" href="#removing-elements" title="Permalink to this headline">¶</a></h3>
+<p>In a queue, we typically remove and return elements from the beginning,
+or “front” of the queue. Imagine a line at a grocery store - you enter in the
+back and exit in the front.</p>
+<div class="section" id="clear">
+<h4><code class="docutils literal notranslate"><span class="pre">clear()</span></code><a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">clear()</span></code> removes all the elements in the FlexQueue.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pie_sizes</span><span class="p">;</span>
+
+<span class="n">pie_sizes</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+<span class="n">pie_sizes</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+<span class="n">pie_sizes</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+
+<span class="c1">// I ate everything...</span>
+<span class="n">pie_sizes</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+
+<span class="c1">// The FlexQueue is now empty.</span>
+</pre></div>
+</div>
+<p>This function always returns true, and will never throw an exception
+(<strong>no-throw guarantee</strong>).</p>
+</div>
+<div class="section" id="dequeue">
+<h4><code class="docutils literal notranslate"><span class="pre">dequeue()</span></code><a class="headerlink" href="#dequeue" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">dequeue()</span></code> will remove and return the first element in the queue.
+Aliases <code class="docutils literal notranslate"><span class="pre">pop()</span></code> and <code class="docutils literal notranslate"><span class="pre">pop_front()</span></code> are also provided. This function has
+the performance of <code class="docutils literal notranslate"><span class="pre">O(1)</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">apples</span><span class="p">;</span>
+
+<span class="c1">// We&#39;ll push some values</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+
+<span class="c1">// The queue is now [23, 12, 31, 40]</span>
+
+<span class="c1">// We&#39;ll now remove three elements</span>
+<span class="c1">// with the three provided aliases</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">dequeue</span><span class="p">();</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+
+<span class="c1">// The queue is now simply [40]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the queue is empty, this function will throw the exception
+<code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code>.</p>
+</div>
+</div>
+<div class="section" id="erase">
+<h4><code class="docutils literal notranslate"><span class="pre">erase()</span></code><a class="headerlink" href="#erase" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">erase()</span></code> allows you to delete elements in a queue in a given range.
+Remaining values are shifted to fill in the empty slot. This function has a
+worst-case performance of <code class="docutils literal notranslate"><span class="pre">O(n/2)</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">coffeeshop_line</span><span class="p">;</span>
+
+<span class="c1">// We&#39;ll push some values for our example</span>
+<span class="n">coffeeshop_line</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+<span class="n">coffeeshop_line</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s">&quot;Jane&quot;</span><span class="p">);</span>
+<span class="n">coffeeshop_line</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
+
+<span class="c1">// The queue is currently [&quot;Bob&quot;, &quot;Jane&quot;, &quot;Alice&quot;]</span>
+
+<span class="n">apples</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="c1">// The first number in the function call is the lower bound</span>
+<span class="c1">// The second number is the upper bound.</span>
+<span class="c1">// The queue is now simply [&quot;Alice&quot;]</span>
+</pre></div>
+</div>
+<p>If any of the indices are too large, this function will return <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+Otherwise, it will return true. It never throws exceptions
+(<strong>no-throw guarantee</strong>).</p>
+</div>
+</div>
+<div class="section" id="size-and-capacity-functions">
+<h3>Size and Capacity Functions<a class="headerlink" href="#size-and-capacity-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="getcapacity">
+<h4><code class="docutils literal notranslate"><span class="pre">getCapacity()</span></code><a class="headerlink" href="#getcapacity" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">getCapacity()</span></code> returns the total number of elements that can be stored in
+the FlexQueue without resizing.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">short_term_memory</span><span class="p">;</span>
+
+<span class="n">short_term_memory</span><span class="p">.</span><span class="n">getCapacity</span><span class="p">();</span>
+<span class="c1">// Returns 8, the default size.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="length">
+<h4><code class="docutils literal notranslate"><span class="pre">length()</span></code><a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">length()</span></code> allows you to check how many elements are currently
+in the FlexQueue.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">apples</span><span class="p">;</span>
+
+<span class="c1">// We&#39;ll enqueue some values for our example</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">apples</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="n">apples</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+<span class="c1">// The function will return 3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isempty">
+<h4><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code><a class="headerlink" href="#isempty" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code> returns true if the FlexQueue is empty, and false if it contains
+values.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">answers</span><span class="p">;</span>
+
+<span class="n">answers</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">();</span>
+<span class="c1">// The function will return true</span>
+
+<span class="c1">// We&#39;ll enqueue some values for our example</span>
+<span class="n">answers</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+
+<span class="n">answers</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">();</span>
+<span class="c1">// The function will return false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isfull">
+<h4><code class="docutils literal notranslate"><span class="pre">isFull()</span></code><a class="headerlink" href="#isfull" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">isFull()</span></code> returns true if the FlexQueue is full to the current capacity
+(before resizing), and false otherwise.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">answers</span><span class="p">;</span>
+
+<span class="n">answers</span><span class="p">.</span><span class="n">isFull</span><span class="p">();</span>
+<span class="c1">// The function will return false</span>
+
+<span class="c1">// Push values until we are full, using the isFull() function to check.</span>
+<span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">answers</span><span class="p">.</span><span class="n">isFull</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">answers</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reserve">
+<h4><code class="docutils literal notranslate"><span class="pre">reserve()</span></code><a class="headerlink" href="#reserve" title="Permalink to this headline">¶</a></h4>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">reserve()</span></code> to resize the FlexQueue to be able to store the given
+number of elements. If the data structure is already equal to or larger than
+the requested capacity, nothing will happen, and the function will
+return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">labors_of_hercules</span><span class="p">;</span>
+
+<span class="c1">// Reserve space for all the elements we plan on storing.</span>
+<span class="n">labors_of_hercules</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+
+<span class="n">labors_of_hercules</span><span class="p">.</span><span class="n">getCapacity</span><span class="p">();</span>
+<span class="c1">// Returns 12, the requested capacity.</span>
+</pre></div>
+</div>
+<p>After reserving space in an existing FlexQueue, it can continue to resize.</p>
+<p>This function is effectively identical to specifying a size at instantiation.</p>
+</div>
+<div class="section" id="shrink">
+<h4><code class="docutils literal notranslate"><span class="pre">shrink()</span></code><a class="headerlink" href="#shrink" title="Permalink to this headline">¶</a></h4>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">shrink()</span></code> function to resize the FlexQueue to only be large
+enough to store the current number of elements in it. If the shrink is
+successful, it wil return <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise it will return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">FlexQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">marble_collection</span><span class="p">;</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">marble_collection</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">marble_collection</span><span class="p">.</span><span class="n">getCapacity</span><span class="p">();</span>
+<span class="c1">// Returns 128, because FlexQueue is leaving room for more elements.</span>
+
+<span class="c1">// Shrink to only hold the current number of elements.</span>
+<span class="n">marble_collection</span><span class="p">.</span><span class="n">shrink</span><span class="p">();</span>
+
+<span class="n">marble_collection</span><span class="p">.</span><span class="n">getCapacity</span><span class="p">();</span>
+<span class="c1">// Returns 100, the same as the number of elements.</span>
+</pre></div>
+</div>
+<p>After shrinking, we can continue to resize as new elements are added.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is not possible to shrink below a capacity of 2.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flexstack.html" class="btn btn-neutral float-right" title="FlexStack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flexarray.html" class="btn btn-neutral" title="FlexArray" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright MousePaw Media.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

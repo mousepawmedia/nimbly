@@ -46,6 +46,7 @@
 #define NIMBLY_FLEXBIT_HPP
 
 #include <bitset>
+#include <cstring>
 #include <stdexcept>
 
 #include "iosqueak/channel.hpp"

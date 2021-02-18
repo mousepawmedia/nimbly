@@ -162,9 +162,10 @@ add_library(${TARGET_NAME} STATIC
 
     # EXPERIMENTAL
 
-    #include/nimbly/experimental/tests/flexbit_tests.hpp
     #include/nimbly/experimental/flexbit.hpp
     #include/nimbly/experimental/rigid_stack.hpp
+
+    #include/nimbly/experimental/tests/flexbit_tests.hpp
 
     #src/experimental/tests/flexbit_tests.cpp
 )

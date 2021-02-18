@@ -52,7 +52,7 @@
 #include "nimbly/tests/flexstack_tests.hpp"
 #include "nimbly/tests/pool_tests.hpp"
 
-#include "nimbly/experimental/tests/flexbit_tests.hpp"
+//#include "nimbly/experimental/tests/flexbit_tests.hpp"
 
 /** Temporary test code goes in this function ONLY.
  * All test code that is needed long term should be
@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
 	shell->register_suite<TestSuite_FlexQueue>("N-sB02");
 	shell->register_suite<TestSuite_FlexStack>("N-sB03");
 	shell->register_suite<TestSuite_Pool>("N-sB04");
-	//shell->register_suite<Suite_FlexBit>("N-sB05");
+	//shell->register_suite<TestSuite_FlexBit>("N-sB05");
 
 	// If we got command-line arguments.
 	if(argc > 1)

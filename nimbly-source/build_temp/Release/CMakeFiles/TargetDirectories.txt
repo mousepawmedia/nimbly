@@ -1,0 +1,3 @@
+/home/jason/Code/Repositories/nimbly/nimbly-source/build_temp/Release/CMakeFiles/rebuild_cache.dir
+/home/jason/Code/Repositories/nimbly/nimbly-source/build_temp/Release/CMakeFiles/edit_cache.dir
+/home/jason/Code/Repositories/nimbly/nimbly-source/build_temp/Release/CMakeFiles/nimbly.dir

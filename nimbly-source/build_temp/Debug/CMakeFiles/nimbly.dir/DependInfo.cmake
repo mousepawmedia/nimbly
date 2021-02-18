@@ -16,8 +16,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../include"
   "../../../../goldilocks/goldilocks/include"
   "../../../../iosqueak/iosqueak/include"
-  "../../../../libdeps/libs/include"
   "../../../../arctic-tern/arctic-tern/include"
+  "../../../../libdeps/libs/include"
   )
 
 # Targets to which this target links.

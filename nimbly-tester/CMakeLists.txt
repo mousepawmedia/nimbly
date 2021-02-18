@@ -135,8 +135,8 @@ include_directories(include)
 include_directories(../nimbly-source/include)
 include_directories(${GOLDILOCKS_DIR}/include)
 include_directories(${IOSQUEAK_DIR}/include)
-include_directories(${EVENTPP_DIR}/include)
 include_directories(${ARCTICTERN_DIR}/include)
+include_directories(${EVENTPP_DIR}/include)
 
 # CHANGEME: Include files to compile.
 add_executable(${TARGET_NAME}

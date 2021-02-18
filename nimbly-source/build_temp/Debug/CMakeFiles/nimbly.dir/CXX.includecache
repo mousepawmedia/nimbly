@@ -17,8 +17,6 @@ iosqueak/channel.hpp
 ../../../../goldilocks/goldilocks/include/goldilocks/iosqueak/channel.hpp
 
 ../../../../goldilocks/goldilocks/include/goldilocks/goldilocks.hpp
-goldilocks/assertions.hpp
-../../../../goldilocks/goldilocks/include/goldilocks/goldilocks/assertions.hpp
 goldilocks/test.hpp
 ../../../../goldilocks/goldilocks/include/goldilocks/goldilocks/test.hpp
 goldilocks/suite.hpp
@@ -304,6 +302,12 @@ nimbly/core/constants.hpp
 nimbly/core/flex.hpp
 ../../include/nimbly/nimbly/core/flex.hpp
 
+../../include/nimbly/flexqueue.hpp
+iosqueak/channel.hpp
+../../include/nimbly/iosqueak/channel.hpp
+nimbly/core/flex.hpp
+../../include/nimbly/nimbly/core/flex.hpp
+
 ../../include/nimbly/flexstack.hpp
 iosqueak/channel.hpp
 ../../include/nimbly/iosqueak/channel.hpp
@@ -324,6 +328,36 @@ nimbly/flexstack.hpp
 eventpp/callbacklist.h
 ../../include/nimbly/eventpp/callbacklist.h
 
+../../include/nimbly/tests/flexarray_tests.hpp
+vector
+-
+goldilocks/goldilocks.hpp
+../../include/nimbly/tests/goldilocks/goldilocks.hpp
+goldilocks/assertions.hpp
+../../include/nimbly/tests/goldilocks/assertions.hpp
+nimbly/flexarray.hpp
+../../include/nimbly/tests/nimbly/flexarray.hpp
+
+../../include/nimbly/tests/flexqueue_tests.hpp
+queue
+-
+goldilocks/goldilocks.hpp
+../../include/nimbly/tests/goldilocks/goldilocks.hpp
+goldilocks/assertions.hpp
+../../include/nimbly/tests/goldilocks/assertions.hpp
+nimbly/flexqueue.hpp
+../../include/nimbly/tests/nimbly/flexqueue.hpp
+
+../../include/nimbly/tests/flexstack_tests.hpp
+stack
+-
+goldilocks/goldilocks.hpp
+../../include/nimbly/tests/goldilocks/goldilocks.hpp
+goldilocks/assertions.hpp
+../../include/nimbly/tests/goldilocks/assertions.hpp
+nimbly/flexstack.hpp
+../../include/nimbly/tests/nimbly/flexstack.hpp
+
 ../../include/nimbly/tests/pool_tests.hpp
 new
 -
@@ -335,6 +369,18 @@ nimbly/flexarray.hpp
 ../../include/nimbly/tests/nimbly/flexarray.hpp
 nimbly/pool.hpp
 ../../include/nimbly/tests/nimbly/pool.hpp
+
+/home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/flexarray_tests.cpp
+nimbly/tests/flexarray_tests.hpp
+/home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/nimbly/tests/flexarray_tests.hpp
+
+/home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/flexqueue_tests.cpp
+nimbly/tests/flexqueue_tests.hpp
+/home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/nimbly/tests/flexqueue_tests.hpp
+
+/home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/flexstack_tests.cpp
+nimbly/tests/flexstack_tests.hpp
+/home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/nimbly/tests/flexstack_tests.hpp
 
 /home/jason/Code/Repositories/nimbly/nimbly-source/src/tests/pool_tests.cpp
 nimbly/tests/pool_tests.hpp

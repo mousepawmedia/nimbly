@@ -17,8 +17,6 @@ iosqueak/channel.hpp
 ../../../../goldilocks/goldilocks/include/goldilocks/iosqueak/channel.hpp
 
 ../../../../goldilocks/goldilocks/include/goldilocks/goldilocks.hpp
-goldilocks/assertions.hpp
-../../../../goldilocks/goldilocks/include/goldilocks/goldilocks/assertions.hpp
 goldilocks/test.hpp
 ../../../../goldilocks/goldilocks/include/goldilocks/goldilocks/test.hpp
 goldilocks/suite.hpp

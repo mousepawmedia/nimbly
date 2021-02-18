@@ -1,1 +1,0 @@
-/usr/bin/c++  -g  -rdynamic CMakeFiles/nimbly-tester.dir/main.cpp.o  -o ../../bin/Debug/nimbly-tester  ../../../nimbly-source/lib/Debug/libnimbly.a ../../../../goldilocks/goldilocks/lib/libgoldilocks.a ../../../../iosqueak/iosqueak/lib/libiosqueak.a 

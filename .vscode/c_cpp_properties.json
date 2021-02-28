@@ -3,14 +3,13 @@
         {
             "name": "Mac",
             "includePath": [
-                "/usr/include",
-                "/usr/local/include",
-                "${workspaceRoot}/../libdeps/libs/include",
-                "${workspaceRoot}/../arctic-tern/arctic-tern/include",
-                "${workspaceRoot}/../goldilocks/goldilocks/include",
-                "${workspaceRoot}/../iosqueak/iosqueak/include",
-                "${workspaceRoot}/../onestring/onestring/include",
-                "${workspaceRoot}/nimbly-source/include"
+                "/usr/include/**",
+                "/usr/local/include/**",
+                "${workspaceRoot}/../libdeps/libs/include/**",
+                "${workspaceRoot}/../arctic-tern/arctic-tern/include/**",
+                "${workspaceRoot}/../goldilocks/goldilocks/include/**",
+                "${workspaceRoot}/../iosqueak/iosqueak/include/**",
+                "${workspaceRoot}/**"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -22,7 +21,6 @@
                     "${workspaceRoot}/../arctic-tern/arctic-tern/include",
                     "${workspaceRoot}/../goldilocks/goldilocks/include",
                     "${workspaceRoot}/../iosqueak/iosqueak/include",
-                    "${workspaceRoot}/../onestring/onestring/include",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
@@ -32,7 +30,7 @@
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
             ],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
             "cppStandard": "c++17"
         },
@@ -40,33 +38,31 @@
             "name": "Linux",
             "includePath": [
                 "/usr/include/**",
-                "/usr/lib/gcc/x86_64-linux-gnu/**",
                 "/usr/local/include/**",
-                "${workspaceRoot}/../libdeps/libs/include",
-                "${workspaceRoot}/../arctic-tern/arctic-tern/include",
-                "${workspaceRoot}/../goldilocks/goldilocks/include",
-                "${workspaceRoot}/../iosqueak/iosqueak/include",
-                "${workspaceRoot}/../onestring/onestring/include",
-                "${workspaceRoot}/nimbly-source/include"
+                "/usr/lib/gcc/x86_64-linux-gnu/**",
+                "${workspaceRoot}/../libdeps/libs/include/**",
+                "${workspaceRoot}/../arctic-tern/arctic-tern/include/**",
+                "${workspaceRoot}/../goldilocks/goldilocks/include/**",
+                "${workspaceRoot}/../iosqueak/iosqueak/include/**",
+                "${workspaceRoot}/**"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
                     "/usr/include",
-                    "/usr/lib/gcc/x86_64-linux-gnu",
                     "/usr/local/include",
+                    "/usr/include/x86_64-linux-gnu",
                     "${workspaceRoot}/../libdeps/libs/include",
                     "${workspaceRoot}/../arctic-tern/arctic-tern/include",
                     "${workspaceRoot}/../goldilocks/goldilocks/include",
                     "${workspaceRoot}/../iosqueak/iosqueak/include",
-                    "${workspaceRoot}/../onestring/onestring/include",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "compilerPath": "/usr/bin/clang-9",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
             "cppStandard": "c++17"
         },
@@ -74,7 +70,11 @@
             "name": "Win32",
             "includePath": [
                 "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include",
-                "${workspaceRoot}"
+                "${workspaceRoot}/../libdeps/libs/include/**",
+                "${workspaceRoot}/../arctic-tern/arctic-tern/include/**",
+                "${workspaceRoot}/../goldilocks/goldilocks/include/**",
+                "${workspaceRoot}/../iosqueak/iosqueak/include/**",
+                "${workspaceRoot}/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -84,12 +84,16 @@
             "browse": {
                 "path": [
                     "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
+                    "${workspaceRoot}/../libdeps/libs/include",
+                    "${workspaceRoot}/../arctic-tern/arctic-tern/include",
+                    "${workspaceRoot}/../goldilocks/goldilocks/include",
+                    "${workspaceRoot}/../iosqueak/iosqueak/include",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
             "cppStandard": "c++17"
         }
